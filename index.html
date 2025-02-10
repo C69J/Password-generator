@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.jpg?v=2" type="image/x-icon">
+    <meta property="og:image" content="https://ogimg.jpg" />
+    <title>Password Generator</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #2c3e50, #4ca1af);
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            display: inline-block;
+            min-width: 300px;
+            word-wrap: break-word;
+        }
+        
+        div {
+            margin: 10px 0;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        label {
+            font-size: 1.2em;
+            margin-right: 10px;
+            display: block;
+            text-align: left;
+        }
+        
+        input {
+            width: 100%;
+            padding: 8px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            box-sizing: border-box;
+        }
+        
+        button {
+            width: auto;
+            background: #e74c3c;
+            color: white;
+            font-size: 1.2em;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            box-sizing: border-box;
+        }
+        
+        button:hover {
+            background: #c0392b;
+        }
+        
+        #copy-bt {
+            background: #27ae60;
+        }
+        
+        #copy-bt:hover {
+            background: #219150;
+        }
+        
+        @media screen and(max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            label {
+                font-size: 1em;
+            }
+            button {
+                font-size: 1em;
+                width: 100%;
+            }
+        }
+        
+        
+        .green{
+            color: rgb(9, 216, 9);
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the password generator!</h1>
+    <h2 id="result"></h2>
+    <button id="copy-bt">Copy to clipboard</button>
+    <div>
+        <label for="letters">How many letters do you want:</label>
+        <input type="text" name="" id="letters" placeholder="">
+        </div>
+        <div>
+        <label for="numbers">How many numbers do you want:</label>
+        <input type="text" name="" id="numbers" placeholder="">
+        </div>
+        <div>
+        <label for="symbols">How many symbols do you want:</label>
+        <input type="text" name="" id="symbols" placeholder="">
+        </div>
+        <button id="generate">Generate Password</button>
+    </div>
+</body>
+<script>
+    
+letters=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+         'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',]
+numbers=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+symbols=['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '=', '-', '`', '~', ',', ':', ';', '.', '<', '>', '?', '/', '"',]
+
+document.getElementById("generate").addEventListener("click", function(){
+a= document.getElementById("letters").value;
+b= document.getElementById("numbers").value;
+c= document.getElementById("symbols").value;
+
+password=[];
+for(i=0; i < a; i++){
+let char = letters[Math.floor(Math.random()*letters.length)];
+    password.push(char)
+}
+    
+
+for(i =0; i< b; i++){
+let num = numbers[Math.floor(Math.random()*numbers.length)];
+password.push(num)
+}
+    
+for(i = 0; i< c; i++){
+let sym = symbols[Math.floor(Math.random()*symbols.length)];
+password.push(sym)
+}
+     
+    
+new_password= "";
+for(i=0; i<password.length;i++){
+let x = password[Math.floor(Math.random()*password.length)];
+ new_password = new_password+x;
+}
+/*
+e=""
+for(i=1; i<=d+1; i++){
+ let passkey= Math.floor(Math.random()*new_password.length);
+    e=e+passkey
+}*/
+ document.getElementById("result").innerText = `${new_password}`;   
+
+});
+
+document.getElementById("copy-bt").addEventListener("click", function(){
+    navigator.clipboard.writeText(result.innerText);
+    document.getElementById("result").innerText = `Password copied!`;
+    document.getElementById("result").classList.add('green');
+    setTimeout(goBack, 1000);
+    let bsdk = new_password
+    function goBack(new_password){
+        document.getElementById("result").innerText = `${bsdk}`;
+        document.getElementById("result").classList.remove('green');
+    }
+})
+</script>
+</html>
