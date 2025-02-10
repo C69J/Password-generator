@@ -5,7 +5,7 @@ numbers=['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 symbols=['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '=', '-', '`', '~', ',', ':', ';', '.', '<', '>', '?', '/', '"',]
 
 print("Welcome to the password generator!")
-a=int(input("How many letters would you want in your password: "))
+a=int(input("How many letters would you want: "))
 b=int(input("How many numbers would you like: "))
 c=int(input("How many symbols would you want: "))
 
