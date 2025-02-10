@@ -174,9 +174,9 @@ document.getElementById("copy-bt").addEventListener("click", function(){
     document.getElementById("result").innerText = `Password copied!`;
     document.getElementById("result").classList.add('green');
     setTimeout(goBack, 1000);
-    let bsdk = new_password
+    let passkey = new_password
     function goBack(new_password){
-        document.getElementById("result").innerText = `${bsdk}`;
+        document.getElementById("result").innerText = `${passkey}`;
         document.getElementById("result").classList.remove('green');
     }
 })
