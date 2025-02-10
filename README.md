@@ -1,1 +1,1 @@
-![funny-password-generator](https://github.com/user-attachments/assets/3110d817-221c-4b90-af70-ed278abedb2a)
+![so-we-put-a-password-memes](https://github.com/user-attachments/assets/c925863b-5dc4-4916-8f8e-c8cd325c6215)
