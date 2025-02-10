@@ -164,12 +164,7 @@ for(i=0; i<password.length;i++){
 let x = password[Math.floor(Math.random()*password.length)];
  new_password = new_password+x;
 }
-/*
-e=""
-for(i=1; i<=d+1; i++){
- let passkey= Math.floor(Math.random()*new_password.length);
-    e=e+passkey
-}*/
+
  document.getElementById("result").innerText = `${new_password}`;   
 
 });
