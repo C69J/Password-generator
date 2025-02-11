@@ -163,6 +163,7 @@ new_password= "";
 for(i=0; i<password.length;i++){
 let x = password[Math.floor(Math.random()*password.length)];
  new_password = new_password+x;
+ password.pop(x)
 }
 
  document.getElementById("result").innerText = `${new_password}`;   
